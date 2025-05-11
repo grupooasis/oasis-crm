@@ -9,10 +9,10 @@ function Login({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === 'facundo.m@grupooasis.com.ar' && password === 'oasis2024') {
+    if (email === 'f.medina@grupooasis.com.ar' && password === 'oasis2024') {
       onLogin({ nombre: 'Facundo', rol: 'directorio' });
       navigate('/');
-    } else if (email === 'ernesto.o@grupooasis.com.ar' && password === 'oasis2024') {
+    } else if (email === 'e.ochoa@grupooasis.com.ar' && password === 'oasis2024') {
       onLogin({ nombre: 'Ernesto', rol: 'directorio' });
       navigate('/');
     } else {
