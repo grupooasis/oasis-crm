@@ -1,14 +1,7 @@
 import { useState, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 
-const cajas = [
-  'Home Banking',
-  'Caja 1',
-  'Caja 2',
-  'Caja en dólares',
-  'Criptomonedas',
-  'Cheques'
-];
+const cajas = ['Home Banking', 'Caja 1', 'Caja 2', 'Caja en dólares', 'Criptomonedas', 'Cheques'];
 
 function CajaDiaria() {
   const [registros, setRegistros] = useState([]);
@@ -62,50 +55,17 @@ function CajaDiaria() {
       <h2 className="text-xl font-bold mb-4">Caja Diaria</h2>
 
       <div className="grid grid-cols-2 gap-4 mb-4">
-        <input
-          type="number"
-          placeholder="Monto"
-          value={monto}
-          onChange={(e) => setMonto(e.target.value)}
-          className="border p-2 rounded"
-        />
-        <select
-          value={tipo}
-          onChange={(e) => setTipo(e.target.value)}
-          className="border p-2 rounded"
-        >
+        <input type="number" placeholder="Monto" value={monto} onChange={(e) => setMonto(e.target.value)} className="border p-2 rounded" />
+        <select value={tipo} onChange={(e) => setTipo(e.target.value)} className="border p-2 rounded">
           <option value="Ingreso">Ingreso</option>
           <option value="Egreso">Egreso</option>
         </select>
-        <input
-          type="text"
-          placeholder="Detalle"
-          value={detalle}
-          onChange={(e) => setDetalle(e.target.value)}
-          className="border p-2 rounded col-span-2"
-        />
-        <select
-          value={cajaSeleccionada}
-          onChange={(e) => setCajaSeleccionada(e.target.value)}
-          className="border p-2 rounded col-span-2"
-        >
+        <input type="text" placeholder="Detalle" value={detalle} onChange={(e) => setDetalle(e.target.value)} className="border p-2 rounded col-span-2" />
+        <select value={cajaSeleccionada} onChange={(e) => setCajaSeleccionada(e.target.value)} className="border p-2 rounded col-span-2">
           {cajas.map(c => <option key={c}>{c}</option>)}
         </select>
-        <button
-          onClick={agregarRegistro}
-          className="bg-blue-600 text-white p-2 rounded col-span-2"
-        >
-          Agregar Movimiento
-        </button>
-        <button
-          onClick={() => {
-            generarPDF();
-            guardarCierre();
-          }}
-          className="bg-green-600 text-white p-2 rounded col-span-2"
-        >
-          Generar Cierre PDF y Guardar
-        </button>
+        <button onClick={agregarRegistro} className="bg-blue-600 text-white p-2 rounded col-span-2">Agregar Movimiento</button>
+        <button onClick={() => { generarPDF(); guardarCierre(); }} className="bg-green-600 text-white p-2 rounded col-span-2">Generar Cierre PDF y Guardar</button>
       </div>
 
       <div ref={componentePDF} className="mb-4">
