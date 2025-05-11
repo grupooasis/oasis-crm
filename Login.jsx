@@ -9,7 +9,7 @@ function Login({ onLogin }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === 'f.medina@grupooasis.com.ar' && password === 'oasis2024') {
+    if (email === 'f.medina' && password === 'oasis2024') {
       onLogin({ nombre: 'Facundo', rol: 'directorio' });
       navigate('/');
     } else if (email === 'e.ochoa@grupooasis.com.ar' && password === 'oasis2024') {
